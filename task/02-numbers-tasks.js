@@ -54,7 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    return (value1 + value2)/2;
+    return ((Math.max(value1, value2))+(Math.min(value1, value2)))/2;
 }
 
 /**
@@ -111,11 +111,7 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-    var a=Math.hypot(x1, y1);
-	var b= Math.hypot (x2, y2);
-	var sum=Math.hypot(x1+x2, y1+y2);
-	var result=(Math.pow(sum, 2)- Math.pow(a, 2)-Math.pow(b, 2))/2*a*b;
-	return Math.acos(result);
+    return Math.acos((x1*x2+y1*y2)/(Math.hypot(x1, y1)*Math.hypot(x2, y2)));
 }
 
 /**
@@ -208,6 +204,8 @@ function roundToPowerOfTen(num, pow) {
  */
 //используем малую теорему Ферма
 function isPrime(n) {
+    if (n===2)
+		return true
     return (Math.pow(2,(n-1))-1)%n===0;
 }
 
