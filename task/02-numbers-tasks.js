@@ -202,13 +202,18 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-//используем малую теорему Ферма
 function isPrime(n) {
-    if (n===2)
-		return true
-    return (Math.pow(2,(n-1))-1)%n===0;
-}
-
+    if(n==1) // 1 - не простое число
+		return false;
+	// перебираем возможные делители от 2 до sqrt(n)
+	for(var d=2; d*d<=n; d++){ 
+		// если разделилось нацело, то составное
+		if(n%d==0) 
+			return false;
+		}
+	// если нет нетривиальных делителей, то простое
+	return true;
+	}
 /**
  * Tries to convert value to number and returns it if conversion was successfull;
  * otherwise returns default value passed as a second argument.
