@@ -82,7 +82,7 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
-unction timeSpanToString(startDate, endDate) {
+function timeSpanToString(startDate, endDate) {
   return (new Date(endDate-startDate).toISOString()).substr(11,12)
 }
 
