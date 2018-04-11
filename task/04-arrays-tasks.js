@@ -38,13 +38,14 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  var arr = [1];
-	while (arr.length<len){
-		arr.push(arr[arr.length-1]+2)
-	}
-   return arr;
+	var arr=[]
+	arr.length= len;
+	arr.fill(1);
+	var arrf = arr.map(function(currentValue,index,array){
+		return currentValue+index*2;
+	})
+	return arrf
 }
-
 
 /**
  * Returns the doubled array - elements of the specified array are repeated twice using original order
@@ -74,7 +75,10 @@ function doubleArray(arr) {
  *    [] => [] 
  */
 function getArrayOfPositives(arr) {
-   throw new Error('Not implemented');
+  function isPositive(value){
+	  return value>0
+  }
+  return arr.filter(isPositive)
 }
 
 /**
@@ -89,7 +93,10 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-   throw new Error('Not implemented');
+  function isString(value){
+	  return typeof value==='string'
+  }
+  return arr.filter(isString)
 }
 
 /**
